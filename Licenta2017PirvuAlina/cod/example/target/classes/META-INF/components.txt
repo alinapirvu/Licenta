@@ -1,0 +1,3 @@
+com.acme.internal.DefaultHelloWorld
+com.acme.script.HelloWorldScriptService
+com.acme.internal.Cal

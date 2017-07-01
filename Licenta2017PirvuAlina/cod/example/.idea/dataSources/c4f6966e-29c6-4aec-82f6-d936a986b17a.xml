@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="STUDENT">
+      <ObjectId>48</ObjectId>
+      <IntrospectionTimestamp>2017-07-01.19:18:11</IntrospectionTimestamp>
+      <CreatedTimestamp>2017-07-01.19:18:09</CreatedTimestamp>
+      <ModifiedTimestamp>2017-07-01.19:18:10</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="SYSTEM">
+      <ObjectId>5</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="OUTLN">
+      <ObjectId>9</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="DIP">
+      <ObjectId>14</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="ORACLE_OCM">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="DBSNMP">
+      <ObjectId>29</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="APPQOSSYS">
+      <ObjectId>30</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="CTXSYS">
+      <ObjectId>32</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="XDB">
+      <ObjectId>34</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="ANONYMOUS">
+      <ObjectId>35</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="MDSYS">
+      <ObjectId>42</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="HR">
+      <ObjectId>43</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="FLOWS_FILES">
+      <ObjectId>44</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="APEX_PUBLIC_USER">
+      <ObjectId>45</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="APEX_040000">
+      <ObjectId>47</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <table id="20" parent="2" name="EVENTS">
+      <ObjectId>20178</ObjectId>
+      <CreatedTimestamp>2017-07-01.19:18:09</CreatedTimestamp>
+      <ModifiedTimestamp>2017-07-01.19:18:09</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="21" parent="20" name="ID_EVENT">
+      <Position>1</Position>
+      <DataType>CHAR(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="20" name="EVENT_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="20" name="EVENT_DATE">
+      <Position>3</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="20" name="EVENT_TIME">
+      <Position>4</Position>
+      <DataType>VARCHAR2(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="20" name="EVENT_PLACE">
+      <Position>5</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+    </column>
+    <column id="26" parent="20" name="EVENT_INFO">
+      <Position>6</Position>
+      <DataType>VARCHAR2(1000)|0</DataType>
+    </column>
+    <column id="27" parent="20" name="EVENT_PEOPLE">
+      <Position>7</Position>
+      <DataType>VARCHAR2(200)|0</DataType>
+    </column>
+    <index id="28" parent="20" name="SYS_C007071">
+      <ObjectId>20179</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2017-07-01.19:18:10</CreatedTimestamp>
+      <ModifiedTimestamp>2017-07-01.19:18:10</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_EVENT</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="20" name="SYS_C007071">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2017-07-01.19:18:10</ModifiedTimestamp>
+      <ColNames>ID_EVENT</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007071</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

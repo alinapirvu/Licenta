@@ -1,0 +1,6 @@
+com\acme\internal\Day.class
+com\acme\internal\DefaultHelloWorld.class
+com\acme\internal\Cal.class
+com\acme\HelloWorld.class
+com\acme\internal\Event.class
+com\acme\script\HelloWorldScriptService.class
