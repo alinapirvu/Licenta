@@ -1,0 +1,13 @@
+{{velocity}}
+#if($request.name && $request.date && $request.time)
+    $services.hello.deleteEvent($request.name, $request.date, $request.time)
+    #set($url = "http://localhost:8080/xwiki/bin/view/XWiki/Calendar/Events?eventDate=$request.date")
+    $response.sendRedirect($url)
+    This event was successfully deleted!
+#end
+{{html}}
+<div>
+ <input class="button" type="submit" id="back" value="Go back to Calendar">
+</div>
+{{/html}}
+{{/velocity}}

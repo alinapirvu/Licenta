@@ -1,0 +1,12 @@
+{{velocity}}
+$services.hello.deleteEvent($request.oldName, $request.oldDate, $request.oldTime)
+$services.hello.addEvent($request.name, $request.date, $request.time, $request.place, $request.info, $request.people)
+##$services.hello.editEvent("ev", "11-07-2017", "18:00", "event", "24-07-2017", "18:48", "homee", "nope", "mee")
+    ##$services.hello.editEvent($request.oldName, $request.oldDate, $request.oldTime, $request.name, $request.date, $request.time, $request.place, $request.info, $request.people)
+
+    
+    #set($url = "http://localhost:8080/xwiki/bin/view/XWiki/XWiki%20Calendar")
+    $response.sendRedirect($url)
+    This event was successfully edited!
+
+{{/velocity}}

@@ -1,0 +1,55 @@
+#main {
+        height: 100px;
+        margin-top: 15px;
+        background-color: #F5F5F5;
+}
+
+#date {
+	float: left;
+	width: 15%;
+        height: 100%;
+	background-color: #009AE7;
+        margin-right: 10px;
+}
+
+#num {
+	font-size: 40px;
+	text-align: center;
+	padding: 0;
+        margin: 0;
+}
+
+#month {
+	font-size: 25px;
+	text-align: center;
+	padding: 0;
+        margin: 0;
+}
+
+#info {
+        height: 100%;
+}
+
+#name {
+        margin: 10px;
+        padding-top: 5px;
+}
+
+#clickSuggestion {
+        font-size: 12px;
+}
+
+#deled {
+        margin-top: 36px;
+	float: right;
+        text-align: right;
+        margin-right: 40px;
+}
+
+#edit {
+       margin-right: 30px;
+}
+
+#panel {
+    display: none;
+}

@@ -1,0 +1,80 @@
+{{velocity}}
+{{html}}
+<head>
+</head>
+<body>
+
+<div>
+ <input class="button" type="submit" id="back" value="Go back to Calendar">
+</div>
+
+#set($my_list = $services.hello.getEventsForToday($request.eventDate))
+#if($my_list.size() <= 1)
+  #set($j = 0)
+  <br />No events for today
+#else
+  #set($j = $my_list.size() / 6)
+  #foreach($i in [1..$j])
+    #set($n = $i - 1)
+    #set($ind = 6 * $n)
+    #set($name = $my_list.get($ind))
+    #set($i1 = $ind + 1)
+    #set($mydate = $my_list.get($i1))
+    #if($mydate.substring(0, 1) != 0)
+        #set($day = $mydate.substring(0, 2))
+    #else
+        #set($day = $mydate.substring(1, 2))
+    #end
+    #set($i1 = $ind + 2)
+    #set($time = $my_list.get($i1))
+    #set($i1 = $ind + 3)
+    #set($place = $my_list.get($i1))
+    #if(!$place)
+        #set($place = "")
+    #end
+    #set($i1 = $ind + 4)
+    #set($info = $my_list.get($i1))
+    #if(!$info)
+        #set($info = "")
+    #end
+    #set($i1 = $ind + 5)
+    #set($people = $my_list.get($i1))
+    #if(!$people)
+        #set($people = "")
+    #end
+    <div id="main" class="myclass">
+ <div id="date"> 
+  <p id="num">$day</p>
+  <p id="month"><b>JUL</b></p>
+ </div>
+ <div id="info">
+                #set($my_link = "http://localhost:8080/xwiki/bin/view/XWiki/Calendar/Event/Delete?name=$name&date=$mydate&time=$time")
+            #set($my_link_e = "http://localhost:8080/xwiki/bin/view/XWiki/Calendar/EditEvent?name=$name&date=$mydate&time=$time&place=$place&info=$info&people=$people")
+                <div id="deled">
+                <a href="$my_link_e" id="edit"><u>Edit</u></a>
+                <a href="$my_link" id="delete"><u>Delete</u></a>
+                </div>
+  <h3 id="name"><b>$name</b></h3>
+  <p id="supl"><b>Time:</b> $time<p>
+  <p id="clickSuggestion"><i>Click for more info...</i></p>
+ 
+ </div>
+</div>
+ <div id="panel" class="mypanel">
+        #if($place != "")
+        <h5 id="imp"><b>Place:</b> $!place</h5>
+    #end
+        #if($info != "")
+        <h6 id="eventInfo"><b>Info:</b> $!info</h6>
+    #end
+        #if($people != "")
+        <p id="people"><b>Invited people:</b> $!people</p>
+    #end
+ </div>
+    
+#end
+#end
+  
+</body>
+{{/html}}
+{{/velocity}}

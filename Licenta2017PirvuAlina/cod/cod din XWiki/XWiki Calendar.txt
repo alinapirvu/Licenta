@@ -1,0 +1,119 @@
+{{velocity}}
+#set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))
+## Used to parse and serialize the selected date using the date format specified in the XClass.
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))
+## A wrapper over the CalendarDateSelect widget that uses the SimpleDateFormat to parse/serialize the dates.
+#set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))
+{{/velocity}}
+
+
+{{velocity}}
+
+{{html}}
+
+<head>
+</head>
+<body>
+
+<div>
+ <input class="button" type="submit" id="addEvent" value="Add Event">
+</div>
+
+<div>
+ <input class="button" type="submit" id="back" value="Go back to Calendar" style="display:none">
+</div>
+
+<br />
+
+#set ($my_list = $services.hello.getCal())
+
+<table id="calendar" style="width:100%>
+<tr>
+    <th>Sunday</th>
+    <th>Monday</th> 
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th> 
+    <th>Friday</th>
+    <th>Saturday</th>
+  </tr>
+
+    #foreach ($i in $my_list)
+        #if ($i)
+            #set($num = $velocityCount)
+            #if ($num % 7 == 1)
+                <tr>
+            #end
+
+            <td>
+
+            #set ($myArray = $i.split("\*\*\*"))
+            #set($firstElem = $myArray[0])
+            #if($myArray.size() > 1)
+                $firstElem<br />
+                #if($firstElem.length() == 1)
+                    #set($zero = "0")
+                    #set($todayM = $datetool.get('-MM-yyyy'))
+                    #set($today = "$zero$firstElem$todayM")
+                #else
+                    #set($todayM = $datetool.get('-MM-yyyy'))
+                    #set($today = "$firstElem$todayM")
+                #end
+                #set($my_link = "http://localhost:8080/xwiki/bin/view/XWiki/Calendar/Events?eventDate=$today")
+                #set($nr = $services.hello.getNumberOfEventsForToday($today))
+                    #if($nr != 1)
+                        <a href="$my_link">${nr} events</a><br />
+                    #else
+                        <a href="$my_link">${nr} event</a><br />
+                    #end
+                
+            #else
+                #if($firstElem != " ")
+                    $firstElem<br /><br />
+                #end
+            #end     
+            </td>
+            #if ($num % 7 == 0)
+                </tr>
+            #end
+        #end
+    #end
+
+</table>
+</body>
+
+{{/html}}
+
+
+{{html}}
+
+<div id="pop" style="display:none">
+<form id="target" data-role="popup" class="ui-content" style="display:table">
+<div style="display:table-cell">
+  <div><label class="name" style="padding-right:67px;">Name*: </label><input type="text" id="name" style="width:195px"></div><br />
+  <div style="margin-right=20px">
+
+  #set ($format = 'dd-MM-yyyy HH:mm')
+  #set ($value = $datetool.date)
+
+  <b>    Date and time*:   </b><input type="text" id="date" value="$!escapetool.xml($datetool.format($format, $value))"
+    class="datetime t$!value.time" title="$!escapetool.xml($format)" style="width:195px" />
+  </div><br />
+  <div><label class="place" style="padding-right:73px;">    Place: </label><input type="text" id="place"></div><br />
+</div>
+<div style="display:table-cell;padding:70px;">
+  <div style="margin-left=20px"><label class="infor" style="padding-right:25px;">    Info: </label><input type="text" id="infor"></div><br />
+  <div style="margin-left=20px"><label class="people">     People: </label><input type="text" id="people"></div><br />
+  <div style="margin-left=20px"><input class="button" type="submit" id="formAddEvent" value="Add My Event"></div>
+</div>
+  
+</form>
+</div>
+
+</body>
+{{/html}}
+
+
+{{/velocity}}

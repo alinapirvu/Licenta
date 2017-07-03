@@ -1,0 +1,46 @@
+{{velocity}}
+
+#set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/calendarDateSelect.css', true))
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/calendarDateSelect.js', true))
+## Used to parse and serialize the selected date using the date format specified in the XClass.
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/simpleDateFormat.js', true))
+## A wrapper over the CalendarDateSelect widget that uses the SimpleDateFormat to parse/serialize the dates.
+#set ($discard = $xwiki.ssfx.use('uicomponents/widgets/datepicker/dateTimePicker.css', true))
+#set ($discard = $xwiki.jsfx.use('uicomponents/widgets/datepicker/dateTimePicker.js'))
+
+
+{{html}}
+<div>
+ <input class="button" type="submit" id="back" value="Go back to Calendar">
+</div>
+
+<div id="pop">
+<form id="target" data-role="popup" class="ui-content" style="display:table">
+<div style="display:table-cell">
+  <div><label class="name" style="padding-right:70px;">Name: </label><input type="text" id="name" value="$request.name" style="width:195px"></div><br />
+  <div style="margin-right=20px">
+
+  #set ($format = 'dd-MM-yyyy HH:mm')
+  #set ($sp = " ")
+  #set ($value = "$request.date$sp$request.time")
+
+  <b>    Date and time: </b><input type="text" id="date" value="$request.date$sp$request.time"
+    class="datetime t$!value.time" title="$!escapetool.xml($format)" style="width:195px" />
+  </div><br />
+  <div><label class="place" style="padding-right:73px;">  
+      Place: </label><input type="text" id="place" value="$!request.place"></div><br />
+</div>
+<div style="display:table-cell;padding:70px;">
+  <div style="margin-left=20px"><label class="infor" style="padding-right:25px;">  
+      Info: </label><input type="text" id="infor" value="$!request.info"></div><br />
+  <div style="margin-left=20px"><label class="people"> 
+      People: </label><input type="text" id="people" value="$!request.people"></div><br />
+  <div style="margin-left=20px"><input class="button" type="submit" id="editEvent" value="Edit Event"></div>
+</div>
+  
+</form>
+</div>
+
+
+{{/html}}
+{{/velocity}}
